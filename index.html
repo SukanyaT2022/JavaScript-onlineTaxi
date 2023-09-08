@@ -7,21 +7,30 @@
 </head>
 <body>
 
-<input type="text" placeholder="Total Distance" id="totalDistance">
+
+<input type="text" placeholder="Total Distance in KM" id="totalDistance">
 <div class="mainBoxOnlineTaxi">
 <p>Online Taxi</p>
 <input type="text" placeholder=" Base Fare" id="baseFare">
 <input type="text" placeholder="First Kilometer" id="firstKM">  
 <input type="text" placeholder="Each Kilometer" id="eachKM">  
-<button onclick="connectSubmitButton()">Submit</button>
+<button onclick="connectSubmitButton()">Submit Online Taxi</button>
+
 </div>
 
 
+<div class="mainBoxClassicTaxi">
+<p>Classic Taxi</p>
+<input type="text" placeholder=" Base Fare" id="baseFareClassic">
+<input type="text" placeholder="Cost Per Kilometer" id="costPerKM">  
+<input type="text" placeholder="Cost Per Minute" id="CostPermin">  
+<input type="text" placeholder="Speed" id="speed">  
+<button onclick="SubmitButtonClassicTaxi()">Submit Classic Taxi</button>
 
-
+</div>
 
     <script>
-//formula 
+//formula online taxi
 function onlineTaxi (baseFare,firstKM, everyKM, totalDistance){
 var answer = baseFare + (totalDistance - firstKM)* everyKM
 return answer
@@ -29,13 +38,30 @@ return answer
 
 function connectSubmitButton(){
     //read value first
-   var storeBaseFare = document.getElementById("baseFare").value
-     var storefirstKM = document.getElementById("firstKM").value
-       var storeEachKM = document.getElementById("eachKM").value
-       var storeTotalDistance = document.getElementById("eachKM").value
+   var storeBaseFare = parseFloat(document.getElementById("baseFare").value)
+     var storefirstKM = parseFloat(document.getElementById("firstKM").value)
+       var storeEachKM = parseFloat(document.getElementById("eachKM").value)
+       var storeTotalDistance = parseFloat(document.getElementById("eachKM").value)
        var result = onlineTaxi(storeBaseFare, storefirstKM, storeEachKM, storeTotalDistance)
        alert(result)
 }
+
+//formula classic taxi taxi
+// distance/speeed so we get how many mins in taxi.
+function classicTaxi(baseFare, cost4EveryMins, cost4Kilometer, speed, totalDistance){
+var answer2 = baseFare +  cost4Kilometer * totalDistance + cost4EveryMins * (totalDistance/speed)
+return answer2
+}
+//read value
+function SubmitButtonClassicTaxi(){
+    var storeBaseFareClassic = parseFloat(document.getElementById("bbaseFareClassic").value)
+     var storefirstKM = parseFloat(document.getElementById("firstKM").value)
+       var storeEachKM = parseFloat(document.getElementById("eachKM").value)
+       var storeTotalDistance = parseFloat(document.getElementById("eachKM").value)
+       var result = onlineTaxi(storeBaseFare, storefirstKM, storeEachKM, storeTotalDistance)
+       alert(result)
+}
+
 
 
     </script>
