@@ -11,24 +11,30 @@
 <input type="text" placeholder="Total Distance in KM" id="totalDistance">
 <div class="mainBoxOnlineTaxi">
 <p>Online Taxi</p>
-<input type="text" placeholder=" Base Fare" id="baseFare">
+<input type="text" placeholder=" Base Fare $" id="baseFare">
 <input type="text" placeholder="First Kilometer" id="firstKM">  
-<input type="text" placeholder="Each Kilometer" id="eachKM">  
+<input type="text" placeholder="Each Kilometer $" id="eachKM"> 
+<input type ="text" id="onlineFare" readonly >
 <button onclick="connectSubmitButton()">Submit Online Taxi</button>
+
 
 </div>
 
 
 <div class="mainBoxClassicTaxi">
 <p>Classic Taxi</p>
-<input type="text" placeholder=" Base Fare" id="baseFareClassic">
+<input type="text" placeholder=" Base Fare $" id="baseFareClassic">
 <input type="text" placeholder="Cost Per Kilometer" id="costPerKM">  
-<input type="text" placeholder="Cost Per Minute" id="CostPermin">  
+<input type="text" placeholder="Cost Per Minute $" id="CostPermin">  
 <input type="text" placeholder="Speed" id="speed">  
+<input type ="text" id="classicFare" readonly >
 <button onclick="SubmitButtonClassicTaxi()">Submit Classic Taxi</button>
 
 </div>
 
+<div class="comparedButton">
+    <input type="button" onclick="compare()" value="Compared Button" >
+</div>
     <script>
 //formula online taxi
 function onlineTaxi (baseFare,firstKM, everyKM, totalDistance){
@@ -41,9 +47,9 @@ function connectSubmitButton(){
    var storeBaseFare = parseFloat(document.getElementById("baseFare").value)
      var storefirstKM = parseFloat(document.getElementById("firstKM").value)
        var storeEachKM = parseFloat(document.getElementById("eachKM").value)
-       var storeTotalDistance = parseFloat(document.getElementById("eachKM").value)
+       var storeTotalDistance = parseFloat(document.getElementById("totalDistance").value)
        var result = onlineTaxi(storeBaseFare, storefirstKM, storeEachKM, storeTotalDistance)
-       alert(result)
+       document.getElementById("onlineFare").value = result
 }
 
 //formula classic taxi taxi
@@ -54,13 +60,35 @@ return answer2
 }
 //read value
 function SubmitButtonClassicTaxi(){
-    var storeBaseFareClassic = parseFloat(document.getElementById("bbaseFareClassic").value)
-     var storefirstKM = parseFloat(document.getElementById("firstKM").value)
-       var storeEachKM = parseFloat(document.getElementById("eachKM").value)
-       var storeTotalDistance = parseFloat(document.getElementById("eachKM").value)
-       var result = onlineTaxi(storeBaseFare, storefirstKM, storeEachKM, storeTotalDistance)
-       alert(result)
+    var storeBaseFareClassic = parseFloat(document.getElementById("baseFareClassic").value)
+     var storeCostPerKM = parseFloat(document.getElementById("costPerKM").value)
+       var storeCostPerMin = parseFloat(document.getElementById("CostPermin").value)
+       var storeSpeed = parseFloat(document.getElementById("speed").value)
+       var storeTotalDistance = parseFloat(document.getElementById("totalDistance").value)
+       var result2 = classicTaxi(storeBaseFareClassic,  storeCostPerMin, storeCostPerKM, storeSpeed, storeTotalDistance)
+       document.getElementById("classicFare").value = result2
+       console.log(storeBaseFareClassic)
+       console.log(storeCostPerKM)
+       console.log(storeCostPerMin)
+       console.log(storeSpeed)
+       console.log(storeTotalDistance)
 }
+
+//function compare which one cheaper
+function compare(){
+    //first read value
+    var storeValueOnlineTaxi = parseFloat(document.getElementById("onlineFare").value)
+     var storeValueClassicTaxi = parseFloat(document.getElementById("classicFare").value)
+     if(storeValueOnlineTaxi < storeValueClassicTaxi){
+        alert("Online taxi fare is cheaper.")
+     }else if(storeValueOnlineTaxi > storeValueClassicTaxi){
+        alert("Classic taxi fare is cheaper")
+     }else{
+        alert('Both options have the same fare.')
+     }
+}
+
+
 
 
 
