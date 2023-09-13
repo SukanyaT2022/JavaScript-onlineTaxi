@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Taxi Fare Finder</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<h2>Taxi Fare Finder</h2>
+<div class="totalDistance">
 
-<input type="text" placeholder="Total Distance in KM" id="totalDistance">
+<input type="text" placeholder="Total Distance in Kilometer" id="totalDistance">
+</div>
+
+<div class="bigBoxClassicOnline">
+
 <div class="mainBoxOnlineTaxi">
+
 <p>Online Taxi</p>
 <input type="text" placeholder=" Base Fare $" id="baseFare">
 <input type="text" placeholder="First Kilometer" id="firstKM">  
@@ -31,6 +39,8 @@
 <button onclick="SubmitButtonClassicTaxi()">Submit Classic Taxi</button>
 
 </div>
+</div>
+
 
 <div class="comparedButton">
     <input type="button" onclick="compare()" value="Compared Button" >
