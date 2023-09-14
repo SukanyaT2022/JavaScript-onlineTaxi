@@ -2,13 +2,85 @@
     margin: 0;
     padding: 0;
 }
-
+.bighero{
+    width: 100%;
+    height: 300px;
+    background-image: url('https://img.freepik.com/free-vector/illustrated-taxi-app-concept_23-2148512171.jpg?size=626&ext=jpg&ga=GA1.2.727046657.1694689568&semt=sph');
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding-top: 50px;
+}
+.bighero h1{
+    padding-top: 100px;
+}
 
 .totalDistance{
 display: flex;
 align-items: center;
 justify-content: center;
+
 }
 .totalDistance input{
 width: 30%;
+margin-bottom: 30px;
+padding: 10px;
+text-align: center;
+}
+.H2title{
+    text-align: center;
+    margin: 50px 0px 20px 0px;
+}
+
+.bigBoxClassicOnline{
+border: 2px solid black;
+display: flex;
+justify-content: center;
+width: 80%;
+margin: auto;
+padding: 30px 0px;
+border-radius: 5px;
+}
+.mainBoxOnlineTaxi{
+width: 45%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.mainBoxOnlineTaxi input{
+width: 60%;
+margin: 5px 0px;
+padding: 5px 0px;
+padding: 5px 0px;
+text-align: center;
+}
+button{
+    padding: 5px 5px;
+    margin-top: 20px;
+}
+h3{
+    margin-bottom: 15px;
+}
+
+
+.mainBoxClassicTaxi{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mainBoxClassicTaxi input{
+    width: 60%;
+    margin: 5px 0px; 
+    padding: 5px 0px;
+    text-align: center;
+}
+.comparedButton{
+display: flex;
+justify-content: center;
+margin-top: 30px;
+}
+.comparedButton input{
+    padding: 10px 10px;
 }
